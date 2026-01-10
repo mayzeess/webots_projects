@@ -1,0 +1,81 @@
+#VRML_SIM R2025a utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/robots/k-team/khepera4/protos/Khepera4.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/floors/protos/RectangleArena.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/appearances/protos/Parquetry.proto"
+
+WorldInfo {
+}
+Viewpoint {
+  orientation -0.19792822953615122 0.8752757548275729 0.44126723078391733 0.9471482128089279
+  position -0.8128993443333595 -0.9633065780078193 1.329733200977637
+}
+Pose {
+  translation 0.03 0 0
+  children [
+    Shape {
+      geometry Box {
+        size 0.5 0.04 0.001
+      }
+    }
+  ]
+}
+Pose {
+  translation 0.0968639 -0.175444 0
+  rotation 0 0 1 0.7854
+  children [
+    Shape {
+      geometry Box {
+        size 0.5 0.04 0.001
+      }
+    }
+  ]
+}
+Pose {
+  translation -0.148995 -0.169039 0
+  rotation 0 0 -1 -1.8326053071795858
+  children [
+    Shape {
+      geometry Box {
+        size 0.5 0.04 0.001
+      }
+    }
+  ]
+}
+Pose {
+  translation 0.0563433 -0.105102 0
+  rotation 0 0 -1 1.0471999999999997
+  children [
+    Shape {
+      geometry Box {
+        size 0.5 0.04 0.001
+      }
+    }
+  ]
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+Khepera4 {
+  hidden position_0_0 237.3464764376115
+  hidden position_0_1 191.94826520217597
+  hidden translation_1 0 0.0527 0.021
+  hidden rotation_1 0.7060261426205027 -0.706026181091435 -0.055264071057585365 3.031176737973759
+  hidden translation_2 0 -0.0527 0.021
+  hidden rotation_2 -0.6285387916983913 0.6285388559383728 -0.4581243214521663 2.282413593754491
+  translation -0.0484085 -0.316417 -0.000160525
+  rotation -1.4107855903076718e-07 1.6406290430753262e-07 0.9999999999999766 -2.364416063536545
+  controller "lab_5_Khepera"
+}
+RectangleArena {
+  translation 0.42 -0.79 0
+  floorSize 2 2
+  floorTileSize 12 12
+  floorAppearance Parquetry {
+    type "chequered"
+    colorOverride 0 0 0
+  }
+}

@@ -1,0 +1,124 @@
+Базовая папка: C:\Users\shh\Desktop\papka\uprav\lab_5_Khepera
+================================================================================
+
+ФАЙЛ: controllers\lab_5_Khepera\lab_5_Khepera.py
+--------------------------------------------------------------------------------
+from controller import Robot
+
+# Инициализация робота и шаг симуляции
+robot = Robot()
+timestep = int(robot.getBasicTimeStep())
+
+# Параметры управления
+Kp = 0.003  # Коэффициент П-регулятора (подбирается экспериментально)
+base_speed = 3.0  # Базовая скорость обоих колес
+
+# Названия сенсоров освещенности у Khepera IV
+sensor_names = [
+    "ground left infrared sensor", 
+    "ground front left infrared sensor",
+    "ground front right infrared sensor",
+    "ground right infrared sensor"
+]
+
+# Подключение сенсоров
+sensors = []
+for name in sensor_names:
+    sensor = robot.getDevice(name)
+    sensor.enable(timestep)
+    sensors.append(sensor)
+
+# Подключение моторов
+left_motor = robot.getDevice("left wheel motor")
+right_motor = robot.getDevice("right wheel motor")
+left_motor.setPosition(float('inf'))
+right_motor.setPosition(float('inf'))
+
+# Основной цикл
+while robot.step(timestep) != -1:
+    # Чтение значений с сенсоров
+    left_value = sensors[0].getValue()
+    center_left_value = sensors[1].getValue()
+    center_right_value = sensors[2].getValue()
+    right_value = sensors[3].getValue()
+
+    # Ошибка: белая линия имеет высокую яркость
+    # Расчет ошибки как разности между левым и правым сенсором
+    error = (right_value+center_right_value) - (left_value+center_left_value)
+
+    # П-регулятор
+    correction = Kp * error
+
+    # Расчет скоростей колес
+    left_speed = base_speed + correction
+    right_speed = base_speed - correction
+
+    # Ограничение скоростей (если нужно)
+    max_speed = 6.28  # для Khepera IV
+    left_speed = max(min(left_speed, max_speed), -max_speed)
+    right_speed = max(min(right_speed, max_speed), -max_speed)
+
+    # Установка скоростей
+    left_motor.setVelocity(left_speed)
+    right_motor.setVelocity(right_speed)
+
+================================================================================
+
+ФАЙЛ: worlds\lab_5_Khepera.wbt
+--------------------------------------------------------------------------------
+#VRML_SIM R2025a utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/robots/k-team/khepera4/protos/Khepera4.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/floors/protos/RectangleArena.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/appearances/protos/Parquetry.proto"
+
+WorldInfo {
+}
+Viewpoint {
+  orientation -0.02733625862348495 0.9977155500680254 0.06177710026318547 0.8349933122837262
+  position -1.4653011292086575 -0.038453846678582204 1.7227307048737934
+}
+Transform {
+  translation -0.09 0 0
+  children [
+    Shape {
+      geometry Box {
+        size 0.5 0.04 0.001
+      }
+    }
+  ]
+}
+Transform {
+  translation 0.26392 -0.20464 0
+  rotation 0 0 -1 1.0472
+  children [
+    Shape {
+      geometry Box {
+        size 0.5 0.04 0.001
+      }
+    }
+  ]
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+Khepera4 {
+  translation -0.399483 -0.0083788 -0.000160004
+  rotation -2.722488616951259e-05 0.00012094752395813744 0.9999999923152509 0.006314983988335367
+  controller "my_controller"
+}
+RectangleArena {
+  translation 0.42 -0.79 0
+  floorSize 2 2
+  floorTileSize 12 12
+  floorAppearance Parquetry {
+    type "chequered"
+    colorOverride 0 0 0
+  }
+}
+
+================================================================================
+

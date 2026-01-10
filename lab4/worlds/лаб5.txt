@@ -1,0 +1,48 @@
+#VRML_SIM R2025a utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/floors/protos/RectangleArena.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/robots/k-team/khepera3/protos/Khepera3.proto"
+
+WorldInfo {
+}
+Viewpoint {
+  orientation -0.5773502691896257 0.5773502691896257 0.5773502691896257 2.0944
+  position -2.1807594232928803e-05 -2.1807655896736625e-05 2.287679245462538
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+RectangleArena {
+  floorTileSize 1 1
+  floorAppearance PBRAppearance {
+    baseColorMap ImageTexture {
+      url [
+        "A.png"
+      ]
+      repeatS FALSE
+      repeatT FALSE
+    }
+    roughness 1
+    metalness 0
+  }
+}
+Khepera3 {
+  hidden position_0_0 16.91430227301568
+  hidden position_0_1 16.894438423452335
+  hidden linearVelocity_0 2.3397596168981185e-13 9.620785024736562e-14 -1.4004900299039658e-15
+  hidden angularVelocity_0 -4.555358782738596e-13 -5.339360751528657e-13 -4.53867559390971e-12
+  hidden translation_1 0 0.045799999999999785 0.0245
+  hidden rotation_1 -0.7011794083911468 0.7011794574809663 -0.12920838074575183 2.884599795723282
+  hidden linearVelocity_1 -6.514044603909405e-11 -1.705995385646564e-11 1.0427223450234293e-13
+  hidden angularVelocity_1 -1.229731909299188e-12 2.2523655674559875e-12 -4.529117611593785e-12
+  hidden translation_2 0 -0.0457999999999997 0.0245
+  hidden rotation_2 -0.7005085532882417 0.7005086027571525 -0.1362918348003167 2.870678274035037
+  hidden linearVelocity_2 6.492357988824398e-11 1.702578213581918e-11 8.79295328191932e-14
+  hidden angularVelocity_2 1.1962996810238357e-13 -2.7970212941316436e-12 -4.528908865983103e-12
+  translation 0.09858570562051872 -0.031536055565974386 -0.0035162726296412775
+  rotation -0.0005497827591674498 0.00042495087120637245 0.9999997585778082 1.825616116033025
+  controller "controller5"
+}

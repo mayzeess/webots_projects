@@ -1,0 +1,32 @@
+#VRML_SIM R2025a utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/floors/protos/RectangleArena.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/robots/universal_robots/protos/UR5e.proto"
+
+WorldInfo {
+}
+Viewpoint {
+  orientation -0.3009092051151917 0.541416700124383 0.7850615307753702 1.2320873232004275
+  position -1.3990457288403586 -2.260550423615396 2.240618860440083
+}
+Background {
+  skyColor [
+    0.4 0.7 1
+  ]
+}
+RectangleArena {
+}
+UR5e {
+  hidden position_0_0 -9.54153812164904e-05
+  hidden rotation_1 0 0 -1 9.541538270729178e-05
+  hidden position_1_0 5.717749410737057e-05
+  hidden rotation_2 0 1 0 1.5708531774941075
+  hidden position_2_0 1.5863537579494432e-05
+  hidden rotation_3 0 1 0 1.5863544135755236e-05
+  hidden position_3_0 -6.53028709926371e-06
+  hidden rotation_4 0 1 0 1.5707894697129008
+  hidden position_4_0 4.1101369359246675e-07
+  hidden rotation_5 0 0 1 4.107966647175028e-07
+  hidden position_5_0 -4.114185681386769e-07
+  hidden rotation_6 0 -1 0 4.1187628987685676e-07
+}

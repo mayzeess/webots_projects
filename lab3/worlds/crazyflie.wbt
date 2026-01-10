@@ -1,0 +1,30 @@
+#VRML_SIM R2025a utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/floors/protos/Floor.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/robots/bitcraze/crazyflie/protos/Crazyflie.proto"
+
+WorldInfo {
+}
+Viewpoint {
+  orientation -0.0773562871465559 0.9601327834264681 0.2686280756522717 0.5828128388761212
+  position -0.8333853150902625 0.06607627634611254 0.7852324569800067
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+Floor {
+}
+Crazyflie {
+  hidden linearVelocity_0 3.002817631494155e-05 1.8269754691537995e-16 -0.0027462047813136634
+  hidden angularVelocity_0 1.9463957053640192e-16 1.9965465257198727e-05 -2.219222733154649e-15
+  translation 0.254365240826692 -5.483947729208737e-16 0.10577281257909939
+  rotation 1.3068462931321132e-11 -1 6.212050698752648e-10 7.444054069847584e-06
+  controller "crazyflie_pid"
+  controllerArgs [
+    ""
+  ]
+  supervisor TRUE
+}
